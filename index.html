@@ -8,78 +8,127 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
-            <!-- <a href="#" class="logo">MO<span>Dev.</span></a> -->
+            <a href="#" class="logo">
+                <span class="logo-bracket">&lt;</span>MO<span class="logo-bracket">/&gt;</span>
+            </a>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
+                <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-bg-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-        </div>
         <div class="container hero-container">
             <div class="hero-content">
-                <p class="hero-greeting">Hello, I'm</p>
-                <h1 class="hero-title">Mohamed Abdelaty</h1>
-                <h2 class="hero-subtitle">Senior Software Engineer</h2>
-                <p class="hero-description">10+ years of experience in building scalable and high-performance back-end systems and full-stack web applications.</p>
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    Available for new projects
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">I build systems</span>
+                    <span class="title-line gradient-text">that scale.</span>
+                </h1>
+                <p class="hero-description">Senior Software Engineer with 12+ years crafting high-performance backends, microservices, and full-stack applications for global enterprises.</p>
                 <div class="hero-cta">
-                    <a href="#experience" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                    <a href="#experience" class="btn btn-primary">
+                        <span>Explore My Work</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-glass">
+                        <span>Get In Touch</span>
+                    </a>
                 </div>
-                <div class="hero-social">
-                    <a href="https://www.linkedin.com/in/mohamedabdelaty/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://upwork.com/freelancers/mohamedaty" target="_blank" rel="noopener noreferrer" aria-label="Upwork"><i class="fas fa-briefcase"></i></a>
-                    <a href="https://adplist.org/mentors/mohamed-abdel-aty" target="_blank" rel="noopener noreferrer" aria-label="ADPList"><i class="fas fa-users"></i></a>
-                    <a href="https://github.com/mohamedabdelaty" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="hero-image-wrapper">
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                        </div>
-                        <pre class="code-content"><code><span class="keyword">class</span> <span class="class-name">SoftwareEngineer</span> {
-  <span class="keyword">constructor</span>() {
-    <span class="keyword">this</span>.name = <span class="string">"Mohamed"</span>;
-    <span class="keyword">this</span>.role = <span class="string">"Senior SWE"</span>;
-    <span class="keyword">this</span>.experience = <span class="number">10</span>+;
-  }
-
-  <span class="function">build</span>() {
-    <span class="keyword">return</span> <span class="string">"Scalable Systems"</span>;
-  }
-}</code></pre>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="12">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Years Exp.</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="50">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="1000000">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Txns/Day</span>
                     </div>
                 </div>
             </div>
+            <div class="hero-visual">
+                <div class="floating-cards">
+                    <div class="float-card card-1">
+                        <i class="fab fa-java"></i>
+                        <span>Java</span>
+                    </div>
+                    <div class="float-card card-2">
+                        <i class="fas fa-leaf"></i>
+                        <span>Spring</span>
+                    </div>
+                    <div class="float-card card-3">
+                        <i class="fab fa-aws"></i>
+                        <span>AWS</span>
+                    </div>
+                    <div class="float-card card-4">
+                        <i class="fas fa-database"></i>
+                        <span>Redis</span>
+                    </div>
+                    <div class="float-card card-5">
+                        <i class="fas fa-stream"></i>
+                        <span>Kafka</span>
+                    </div>
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="code-filename">engineer.java</span>
+                    </div>
+                    <pre class="code-content"><code><span class="line-num">1</span>  <span class="keyword">@Service</span>
+<span class="line-num">2</span>  <span class="keyword">public class</span> <span class="class-name">Mohamed</span> {
+<span class="line-num">3</span>
+<span class="line-num">4</span>    <span class="keyword">private final</span> Experience exp;
+<span class="line-num">5</span>
+<span class="line-num">6</span>    <span class="keyword">public</span> <span class="function">Solution</span> build() {
+<span class="line-num">7</span>      <span class="keyword">return</span> Solution.builder()
+<span class="line-num">8</span>        .scalable(<span class="keyword">true</span>)
+<span class="line-num">9</span>        .performant(<span class="keyword">true</span>)
+<span class="line-num">10</span>       .build();
+<span class="line-num">11</span>   }
+<span class="line-num">12</span> }</code></pre>
+                </div>
+            </div>
         </div>
-        <div class="scroll-indicator">
-            <a href="#services"><i class="fas fa-chevron-down"></i></a>
+        <div class="hero-social-bar">
+            <a href="https://www.linkedin.com/in/mohamedabdelaty/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://upwork.com/freelancers/mohamedaty" target="_blank" rel="noopener noreferrer" aria-label="Upwork"><i class="fas fa-briefcase"></i></a>
+            <a href="https://adplist.org/mentors/mohamed-abdel-aty" target="_blank" rel="noopener noreferrer" aria-label="ADPList"><i class="fas fa-users"></i></a>
+            <a href="https://github.com/mohamedabdelaty" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <div class="social-line"></div>
         </div>
     </section>
 
@@ -87,30 +136,36 @@
     <section class="services" id="services">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">What I Do</h2>
-                <p class="section-subtitle">End-to-end software engineering services</p>
+                <span class="section-tag">What I Do</span>
+                <h2 class="section-title">End-to-end engineering<br><span class="gradient-text">from idea to production.</span></h2>
             </div>
             <div class="services-grid">
-                <div class="service-card" data-aos="fade-up">
+                <div class="service-card">
+                    <div class="service-number">01</div>
                     <div class="service-icon">
                         <i class="fas fa-drafting-compass"></i>
                     </div>
                     <h3>Analysis & Design</h3>
-                    <p>Analyse and design high-performance software solutions with scalable architecture patterns.</p>
+                    <p>Architect high-performance solutions with scalable patterns, clean boundaries, and future-proof design decisions.</p>
+                    <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
                 </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-card">
+                    <div class="service-number">02</div>
                     <div class="service-icon">
                         <i class="fas fa-code"></i>
                     </div>
                     <h3>Development & Troubleshooting</h3>
-                    <p>Develop and troubleshoot end-to-end applications and APIs with clean, maintainable code.</p>
+                    <p>Build and debug end-to-end applications and APIs with clean, testable, production-ready code.</p>
+                    <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
                 </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-card">
+                    <div class="service-number">03</div>
                     <div class="service-icon">
                         <i class="fas fa-rocket"></i>
                     </div>
                     <h3>Documentation & Delivery</h3>
-                    <p>Document and deliver end-to-end working applications with comprehensive documentation.</p>
+                    <p>Ship complete applications with comprehensive docs, CI/CD pipelines, and smooth handoff processes.</p>
+                    <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
                 </div>
             </div>
         </div>
@@ -120,88 +175,110 @@
     <section class="experience" id="experience">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Experience</h2>
-                <p class="section-subtitle">Building robust, scalable systems for global companies</p>
+                <span class="section-tag">Experience</span>
+                <h2 class="section-title">Trusted by <span class="gradient-text">global enterprises.</span></h2>
             </div>
-            <div class="experience-intro">
-                <p>I'm specialized in building robust, scalable, and high-performance backend systems and full-stack web applications. Whether you need end-to-end development or support on specific modules, I bring a deep understanding of the software development lifecycle—from analysis and design to development, testing, and deployment.</p>
-                <p>I've worked with global companies like <strong>Mondia (UAE)</strong> and <strong>STC (KSA)</strong>, and collaborated on major projects for telecom giants like <strong>Vodafone</strong>.</p>
+            <p class="experience-intro">I bring deep expertise across the full software lifecycle—from system design to deployment—working with telecom giants and global payment platforms.</p>
+
+            <!-- Tech Marquee -->
+            <div class="tech-marquee">
+                <div class="marquee-track">
+                    <span class="marquee-item">Java</span>
+                    <span class="marquee-item">Spring Boot</span>
+                    <span class="marquee-item">Microservices</span>
+                    <span class="marquee-item">Kafka</span>
+                    <span class="marquee-item">Redis</span>
+                    <span class="marquee-item">AWS</span>
+                    <span class="marquee-item">MySQL</span>
+                    <span class="marquee-item">Snowflake</span>
+                    <span class="marquee-item">Docker</span>
+                    <span class="marquee-item">SQS</span>
+                    <span class="marquee-item">Lambda</span>
+                    <span class="marquee-item">Angular</span>
+                    <span class="marquee-item">Oracle</span>
+                    <span class="marquee-item">Consul</span>
+                    <!-- Duplicate for seamless loop -->
+                    <span class="marquee-item">Java</span>
+                    <span class="marquee-item">Spring Boot</span>
+                    <span class="marquee-item">Microservices</span>
+                    <span class="marquee-item">Kafka</span>
+                    <span class="marquee-item">Redis</span>
+                    <span class="marquee-item">AWS</span>
+                    <span class="marquee-item">MySQL</span>
+                    <span class="marquee-item">Snowflake</span>
+                    <span class="marquee-item">Docker</span>
+                    <span class="marquee-item">SQS</span>
+                    <span class="marquee-item">Lambda</span>
+                    <span class="marquee-item">Angular</span>
+                    <span class="marquee-item">Oracle</span>
+                    <span class="marquee-item">Consul</span>
+                </div>
             </div>
 
-            <!-- Tech Stack -->
-            <div class="tech-stack">
-                <h3 class="tech-title">Core Technologies</h3>
-                <div class="tech-tags">
-                    <span class="tech-tag">Java</span>
-                    <span class="tech-tag">Spring Boot</span>
-                    <span class="tech-tag">Microservices</span>
-                    <span class="tech-tag">Kafka</span>
-                    <span class="tech-tag">Redis</span>
-                    <span class="tech-tag">MySQL</span>
-                    <span class="tech-tag">Snowflake</span>
-                    <span class="tech-tag">AWS</span>
-                    <span class="tech-tag">SQS</span>
-                    <span class="tech-tag">Lambda</span>
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">Angular</span>
-                    <span class="tech-tag">Oracle DB</span>
-                    <span class="tech-tag">Docker</span>
-                    <span class="tech-tag">Consul</span>
-                </div>
-            </div>
-
-            <!-- Timeline -->
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Mondia (UAE)</h3>
-                            <span class="timeline-badge">DCB & Payments</span>
+            <!-- Experience Cards -->
+            <div class="exp-grid">
+                <div class="exp-card">
+                    <div class="exp-card-header">
+                        <div class="exp-company">
+                            <h3>Mondia</h3>
+                            <span class="exp-location">UAE</span>
                         </div>
-                        <p>Develop and maintain DCB integrations for worldwide operators and merchants handling millions of transactions on a daily basis.</p>
-                        <div class="timeline-tech">
-                            <span>Java</span><span>Spring Boot</span><span>Consul</span><span>MySQL</span><span>Snowflake</span><span>Redis</span><span>Kafka</span><span>AWS</span><span>SQS</span><span>Lambda</span>
-                        </div>
-                        <p class="timeline-projects"><strong>Projects:</strong> DCB Integrations, LP Container, Framework Helpers Microservices</p>
+                        <span class="exp-badge">DCB & Payments</span>
+                    </div>
+                    <p>Develop and maintain DCB integrations for worldwide operators and merchants handling millions of transactions daily.</p>
+                    <div class="exp-tech">
+                        <span>Java</span><span>Spring Boot</span><span>Kafka</span><span>Redis</span><span>AWS</span><span>Snowflake</span>
+                    </div>
+                    <div class="exp-projects">
+                        <strong>Key Projects:</strong> DCB Integrations, LP Container, Framework Helpers Microservices
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>STC (KSA)</h3>
-                            <span class="timeline-badge">Enterprise</span>
+                <div class="exp-card">
+                    <div class="exp-card-header">
+                        <div class="exp-company">
+                            <h3>STC</h3>
+                            <span class="exp-location">KSA</span>
                         </div>
-                        <p>Analyze, develop and support IGATE Project.</p>
-                        <div class="timeline-tech">
-                            <span>MySQL</span><span>Java</span><span>BPM</span><span>Liferay</span>
-                        </div>
-                        <p class="timeline-projects"><strong>Projects:</strong> Online Forms (Liferay), IGATE BPM</p>
+                        <span class="exp-badge">Enterprise</span>
+                    </div>
+                    <p>Analyze, develop and support IGATE Project — a large-scale enterprise BPM platform.</p>
+                    <div class="exp-tech">
+                        <span>MySQL</span><span>Java</span><span>BPM</span><span>Liferay</span>
+                    </div>
+                    <div class="exp-projects">
+                        <strong>Key Projects:</strong> Online Forms (Liferay), IGATE BPM
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Vodafone (via VILT Group)</h3>
-                            <span class="timeline-badge">Telecom</span>
+                <div class="exp-card">
+                    <div class="exp-card-header">
+                        <div class="exp-company">
+                            <h3>Vodafone</h3>
+                            <span class="exp-location">via VILT Group</span>
                         </div>
-                        <p>Collaborated on many complex projects handling analysis, design, development and support. Outsourced for 6 months to VILT group.</p>
-                        <div class="timeline-tech">
-                            <span>Java</span><span>JSP & Servlets</span><span>Oracle DB</span><span>PL/SQL</span><span>Angular JS</span>
-                        </div>
-                        <p class="timeline-projects"><strong>Projects:</strong> Family Platform, Raseed Extra, Vodafone Location Gateway, BT, UT, Systems Monitoring Tool, Vodafone CI, Welcome SMS, Workflow-X</p>
+                        <span class="exp-badge">Telecom</span>
+                    </div>
+                    <p>Collaborated on complex telecom projects handling analysis, design, development and support across multiple platforms.</p>
+                    <div class="exp-tech">
+                        <span>Java</span><span>JSP</span><span>Oracle DB</span><span>PL/SQL</span><span>Angular JS</span>
+                    </div>
+                    <div class="exp-projects">
+                        <strong>Key Projects:</strong> Family Platform, Raseed Extra, Location Gateway, Workflow-X
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
+                <div class="exp-card">
+                    <div class="exp-card-header">
+                        <div class="exp-company">
                             <h3>Freelance</h3>
-                            <span class="timeline-badge">Diverse Projects</span>
+                            <span class="exp-location">Worldwide</span>
                         </div>
-                        <p>Delivered diverse freelance projects, including web applications, payment engines, subscription-based APIs, and WordPress solutions.</p>
+                        <span class="exp-badge">Diverse</span>
+                    </div>
+                    <p>Built subscription APIs, renewal engines, and DCB payment processing to integrate merchants with telco operators in Egypt. Delivered web applications, payment engines, and full-stack solutions.</p>
+                    <div class="exp-tech">
+                        <span>Java</span><span>Spring Boot</span><span>MySQL</span><span>HTML5</span><span>JSTL</span><span>JavaScript</span><span>DCB Payments</span><span>Subscription APIs</span>
+                    </div>
+                    <div class="exp-projects">
+                        <strong>Key Projects:</strong> Telco merchant integrations (Egypt), <a href="https://azaharavoyages.com/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-light);">azaharavoyages.com</a>, and more
                     </div>
                 </div>
             </div>
@@ -212,28 +289,30 @@
     <section class="testimonials" id="testimonials">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Feedback</h2>
-                <p class="section-subtitle">What clients and coworkers say</p>
+                <span class="section-tag">Testimonials</span>
+                <h2 class="section-title">Words from people<br><span class="gradient-text">I've worked with.</span></h2>
             </div>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <div class="testimonial-quote">
-                        <i class="fas fa-quote-left"></i>
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">Great skills, wonderful attitude and very highly dedicated.</p>
+                    <p class="testimonial-text">"Great skills, wonderful attitude and very highly dedicated."</p>
                     <div class="testimonial-author">
+                        <div class="author-avatar">MK</div>
                         <div class="author-info">
                             <h4>Mina Kahil</h4>
                             <span>Manager</span>
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-quote">
-                        <i class="fas fa-quote-left"></i>
+                <div class="testimonial-card featured">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">Mohamed has a deep understanding of complex systems and a remarkable ability to solve problems efficiently and effectively. He's always keen to tackle challenges head-on and never hesitates to go the extra mile to find the best solution.</p>
+                    <p class="testimonial-text">"Mohamed has a deep understanding of complex systems and a remarkable ability to solve problems efficiently. He never hesitates to go the extra mile to find the best solution."</p>
                     <div class="testimonial-author">
+                        <div class="author-avatar">MF</div>
                         <div class="author-info">
                             <h4>Mohamed Fawzy</h4>
                             <span>Coworker</span>
@@ -241,11 +320,12 @@
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="testimonial-quote">
-                        <i class="fas fa-quote-left"></i>
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">Mohammed delivered great work and I enjoyed working with him. His communication was top-notch, he met all deadlines, and his skills were reasonably strong.</p>
+                    <p class="testimonial-text">"Mohammed delivered great work and I enjoyed working with him. His communication was top-notch, he met all deadlines, and his skills were reasonably strong."</p>
                     <div class="testimonial-author">
+                        <div class="author-avatar">JN</div>
                         <div class="author-info">
                             <h4>Jean</h4>
                             <span>Customer</span>
@@ -260,61 +340,58 @@
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Get In Touch</h2>
-                <p class="section-subtitle">Let's build something great together</p>
+                <span class="section-tag">Contact</span>
+                <h2 class="section-title">Let's build something<br><span class="gradient-text">extraordinary together.</span></h2>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <a href="mailto:contact@mohamed-abdelaty.com">contact@mohamed-abdelaty.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin-in"></i>
-                        <div>
-                            <h4>LinkedIn</h4>
-                            <a href="https://www.linkedin.com/in/mohamedabdelaty/" target="_blank" rel="noopener noreferrer">linkedin.com/in/mohamedabdelaty</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-briefcase"></i>
-                        <div>
-                            <h4>Upwork</h4>
-                            <a href="https://upwork.com/freelancers/mohamedaty" target="_blank" rel="noopener noreferrer">upwork.com/freelancers/mohamedaty</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-users"></i>
-                        <div>
-                            <h4>ADPList</h4>
-                            <a href="https://adplist.org/mentors/mohamed-abdel-aty" target="_blank" rel="noopener noreferrer">adplist.org/mentors/mohamed-abdel-aty</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-github"></i>
-                        <div>
-                            <h4>GitHub</h4>
-                            <a href="https://github.com/mohamedabdelaty" target="_blank" rel="noopener noreferrer">github.com/mohamedabdelaty</a>
-                        </div>
+                    <p class="contact-intro">Whether you need a scalable backend, a full-stack application, or technical mentorship — I'm here to help.</p>
+                    <div class="contact-links">
+                        <a href="mailto:mohamed.abdel.aty92@gmail.com" class="contact-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>mohamed.abdel.aty92@gmail.com</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/mohamedabdelaty/" target="_blank" rel="noopener noreferrer" class="contact-link">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span>linkedin.com/in/mohamedabdelaty</span>
+                        </a>
+                        <a href="https://upwork.com/freelancers/mohamedaty" target="_blank" rel="noopener noreferrer" class="contact-link">
+                            <i class="fas fa-briefcase"></i>
+                            <span>upwork.com/freelancers/mohamedaty</span>
+                        </a>
+                        <a href="https://adplist.org/mentors/mohamed-abdel-aty" target="_blank" rel="noopener noreferrer" class="contact-link">
+                            <i class="fas fa-users"></i>
+                            <span>adplist.org/mentors/mohamed-abdel-aty</span>
+                        </a>
+                        <a href="https://github.com/mohamedabdelaty" target="_blank" rel="noopener noreferrer" class="contact-link">
+                            <i class="fab fa-github"></i>
+                            <span>github.com/mohamedabdelaty</span>
+                        </a>
                     </div>
                 </div>
                 <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    <input type="hidden" name="access_key" value="15ac2c00-eb05-4c41-bcf5-fbbb09453ef1">
+                    <input type="hidden" name="from_name" value="mohamed-abdelaty.com">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <input type="text" name="subject" placeholder="Subject" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        <textarea name="message" placeholder="Tell me about your project..." rows="5" required></textarea>
                     </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                    <p class="form-status" id="formStatus"></p>
                 </form>
             </div>
         </div>
@@ -324,7 +401,10 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2026 Mohamed Abdelaty. All rights reserved.</p>
+                <a href="#" class="logo">
+                    <span class="logo-bracket">&lt;</span>MO<span class="logo-bracket">/&gt;</span>
+                </a>
+                <p>Designed & Built by Mohamed Abdelaty &copy; 2026</p>
                 <div class="footer-social">
                     <a href="https://www.linkedin.com/in/mohamedabdelaty/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://upwork.com/freelancers/mohamedaty" target="_blank" rel="noopener noreferrer" aria-label="Upwork"><i class="fas fa-briefcase"></i></a>
